@@ -1,3 +1,3 @@
 name: DimPim
 version: ${project.version}
-main: DimPim
+main: me.chris.dimpim.DimPim
