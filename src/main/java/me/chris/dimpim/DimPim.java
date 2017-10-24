@@ -13,7 +13,7 @@ public class DimPim extends JavaPlugin {
 
     DISCLAIMER
     this is a very, very memeish plugin with no actual value
-    this was made for a funny dude who runds a discord
+    this was made for a funny dude who runs a discord
     join it here: https://discord.gg/uvN7aSj
     anyways here's the source you beautiful bastards
 
@@ -25,7 +25,7 @@ public class DimPim extends JavaPlugin {
         setupEvents();
     }
 
-    public void setupEvents() {
+    private void setupEvents() {
         //Assign the variable "pm" to the Servers Plugin Manager.\\
         PluginManager pm = Bukkit.getServer().getPluginManager();
         //Register all the events necessary\\
