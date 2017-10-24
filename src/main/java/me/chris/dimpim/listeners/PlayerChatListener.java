@@ -13,7 +13,10 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class PlayerChatListener implements Listener {
 
 
+    // All color codes with leters
     private char[] codes = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    // All extra stuff like bold and underline
+    private String[] addable = new String[] {"", "&k", "&l", "&m", "&n", "&o"};
 
     //Call the AsyncPlayerChatEvent which is fired when a player types into chat.\\
     @EventHandler
@@ -48,7 +51,7 @@ public class PlayerChatListener implements Listener {
                 //for each line, we need a new random, and we'll get it's integer\\
 
                 //Color the sign accordingly, and set the text to "dimpim is sexy"\\
-                sign.setLine(a, ChatColor.translateAlternateColorCodes('&', "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
+                sign.setLine(a, ChatColor.translateAlternateColorCodes('&', addable[r.nextInt(6)] + "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
                 //MUST BE CALLED TO APPLLY THE CHANGE\\
                 //Not used in the SignChangeListener because that event listents for when the sign is placed, and it's already updated after that event anyhow\\
                 sign.update();

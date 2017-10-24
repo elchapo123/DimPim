@@ -16,7 +16,10 @@ import me.chris.dimpim.DimPim;
 public class ChunkLoadListener implements Listener {
 
     private DimPim main;
+    // All color codes with leters
     private char[] codes = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    // All extra stuff like bold and underline
+    private String[] addable = new String[] {"", "&k", "&l", "&m", "&n", "&o"};
     public ChunkLoadListener(DimPim main) {
         this.main = main;
     }
@@ -40,7 +43,7 @@ public class ChunkLoadListener implements Listener {
                     //Same for loop as before lads, loop through all the lines\\
                     for(int a = 0; a < sign.getLines().length; a++) {
                         //Use that int value to color each line a new color, then make the text "dimpim is sexy"\\
-                        sign.setLine(a, ChatColor.translateAlternateColorCodes('&', "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
+                        sign.setLine(a, ChatColor.translateAlternateColorCodes('&', addable[r.nextInt(6)] + "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
                     }
 
                 }
