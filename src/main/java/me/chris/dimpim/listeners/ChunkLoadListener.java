@@ -15,7 +15,8 @@ import me.chris.dimpim.DimPim;
 
 public class ChunkLoadListener implements Listener {
 
-    DimPim main;
+    private DimPim main;
+    private char[] codes = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public ChunkLoadListener(DimPim main) {
         this.main = main;
     }
@@ -32,6 +33,8 @@ public class ChunkLoadListener implements Listener {
                 //Cast the chunk varaible to the loaded chunk in the event\\
                 Chunk chunk = e.getChunk();
                 //Loop through all the blockstates in the chunk\\
+                Random r = new Random();
+                //Create a new random for each line, and get its int value\\
                 for(BlockState b : chunk.getTileEntities()) {
                     //If the blockstate is an instanceof sign, YOU SHALL PASS\\
                     if(b instanceof Sign) {
@@ -39,11 +42,8 @@ public class ChunkLoadListener implements Listener {
                         Sign sign = (Sign) b;
                         //Same for loop as before lads, loop through all the lines\\
                         for(int a = 0; a < sign.getLines().length; a++) {
-                            //Create a new random for each line, and get its int value\\
-                            Random r = new Random();
-                            int num = r.nextInt(9);
                             //Use that int value to color each line a new color, then make the text "dimpim is sexy"\\
-                            sign.setLine(a, ChatColor.translateAlternateColorCodes('&', "&" + num + "dimpim is sexy"));
+                            sign.setLine(a, ChatColor.translateAlternateColorCodes('&', "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
                         }
 
                     }

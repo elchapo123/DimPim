@@ -13,15 +13,16 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 public class PlayerChatListener implements Listener {
 
 
+    private char[] codes = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
     //Call the AsyncPlayerChatEvent which is fired when a player types into chat.\\
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         //Create a new random for the colorizing, and grab it's int value.\\
         Random r = new Random();
-        int num = r.nextInt(9);
 
         //Override the message with int's color value + "dimpim is sexy".\\
-        e.setMessage(ChatColor.translateAlternateColorCodes('&', "&" + num + "dimpim is sexy"));
+        e.setMessage(ChatColor.translateAlternateColorCodes('&', "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
 
         //NOTE: quite stupid to do, but the below code is to refresh all signs in the chunk, in a kinda lowkey way, on the text event.\\
         //Makes sure all the signs are the right text.. dont'.. don't ask.\\
@@ -45,11 +46,9 @@ public class PlayerChatListener implements Listener {
 
             for(int a = 0; a < sign.getLines().length; a++) {
                 //for each line, we need a new random, and we'll get it's integer\\
-                Random r2 = new Random();
-                int num2 = r2.nextInt(9);
 
                 //Color the sign accordingly, and set the text to "dimpim is sexy"\\
-                sign.setLine(a, ChatColor.translateAlternateColorCodes('&', "&" + num2 + "dimpim is sexy"));
+                sign.setLine(a, ChatColor.translateAlternateColorCodes('&', "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
                 //MUST BE CALLED TO APPLLY THE CHANGE\\
                 //Not used in the SignChangeListener because that event listents for when the sign is placed, and it's already updated after that event anyhow\\
                 sign.update();
