@@ -43,7 +43,7 @@ public class ChunkLoadListener implements Listener {
                     //Same for loop as before lads, loop through all the lines\\
                     for(int a = 0; a < sign.getLines().length; a++) {
                         //Use that int value to color each line a new color, then make the text "dimpim is sexy"\\
-                        sign.setLine(a, ChatColor.translateAlternateColorCodes('&', addable[r.nextInt(6)] + "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
+                        sign.setLine(a, ChatColor.translateAlternateColorCodes('&', addable[r.nextInt(6)] + "&" + codes[r.nextInt(15)] + main.randomizeCapitals("dimpim is sexy")));
                     }
 
                 }

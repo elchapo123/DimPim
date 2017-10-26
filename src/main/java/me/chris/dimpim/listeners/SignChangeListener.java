@@ -2,12 +2,18 @@ package me.chris.dimpim.listeners;
 
 import java.util.Random;
 
+import me.chris.dimpim.DimPim;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
 
 public class SignChangeListener implements Listener {
+
+    private DimPim dimPim;
+    public SignChangeListener(DimPim dimPim) {
+        this.dimPim = dimPim;
+    }
 
     // All color codes with leters
     private char[] codes = new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -23,7 +29,7 @@ public class SignChangeListener implements Listener {
         //Loop through all the lines on the sign\\
         for(int a = 0; a < e.getLines().length; a++) {
             //Set the lines sign to that color + "dimpim is sexy".\\
-            e.setLine(a, ChatColor.translateAlternateColorCodes('&', addable[r.nextInt(6)] + "&" + codes[r.nextInt(15)] + "dimpim is sexy"));
+            e.setLine(a, ChatColor.translateAlternateColorCodes('&', addable[r.nextInt(6)] + "&" + codes[r.nextInt(15)] + dimPim.randomizeCapitals("dimpim is sexy")));
         }
 
     }
